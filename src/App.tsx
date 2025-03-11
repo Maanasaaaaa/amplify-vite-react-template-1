@@ -6,6 +6,11 @@ import { useAuthenticator } from '@aws-amplify/ui-react';
 const client = generateClient<Schema>();
 
 function App() {
+  const is404Page = window.location.pathname === '/404.html';
+
+  if (is404Page) {
+    console.log("Page not found");
+  }
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
   const { user,signOut } = useAuthenticator();
 
