@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 import { useAuthenticator } from '@aws-amplify/ui-react';
-import { useLanguage } from './contexts/LanguageContext';
+// import { useLanguage } from './contexts/LanguageContext';
 
 const client = generateClient<Schema>();
 
@@ -14,7 +14,7 @@ function App() {
   }
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
   const { user,signOut } = useAuthenticator();
-  const { language } = useLanguage();
+  // const { language } = useLanguage();
 
   useEffect(() => {
     client.models.Todo.observeQuery().subscribe({
